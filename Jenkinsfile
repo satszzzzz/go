@@ -30,6 +30,7 @@ pipeline {
             echo 'Pipeline completed!'
             sh 'docker logs go-app'
             sh 'docker rm -f go-app || true'
+            sh 'docker rmi go-app:latest || true'
         }
     }
 }
