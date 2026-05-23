@@ -10,7 +10,7 @@ pipeline {
 
         stage('Docker build') {
             steps {
-                sh 'docker build -t go-app:latest .'
+                sh 'DOCKER_CONFIG=/tmp/empty-docker-config docker build -t go-app:latest .'
             }
         }
 
