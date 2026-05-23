@@ -3,12 +3,12 @@ package main1
 import (
 	"time"
 	"sync"
+	"fmt"
 )
 
 var dbData = []string{"db1", "db2", "db3", "db4", "db5"}
 var results = []string{}
 func main() {
-	t0 := time.Now()
 	var wg = sync.WaitGroup{}
 
 	for i:=0; i<len(dbData); i++ {
@@ -22,7 +22,7 @@ func main() {
 
 func dbCall(i int) {
 	delay:=2000
-	time.sleep(time.Duration(delay*time.Millisecond))
+	time.Sleep(time.Duration(delay*time.Millisecond))
 	fmt.Println("Database called is ", dbData[i])
 	results = append(results, dbData[i])
 }

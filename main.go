@@ -134,6 +134,7 @@ func makeCHannel() {
     var c = make(chan int)
     c <- 1 // chan keyword to create a channel for holfing int, assigning 1 to channel c
     var i = <- c // channel c is empty
+    fmt.Println(i)
 }
 
 var m = sync.Mutex{}

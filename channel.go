@@ -4,7 +4,7 @@ import (
 	"fmt"
 )
 
-func makeCHannel() {
+func makeChannel() {
     var c = make(chan int)
     
     go process(c)  // Run process in goroutine to send values
