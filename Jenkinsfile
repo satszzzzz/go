@@ -28,6 +28,7 @@ pipeline {
         }
         success {
             echo 'Pipeline completed!'
+            sh 'docker logs go-app'
             sh 'docker rm -f go-app || true'
         }
     }
