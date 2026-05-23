@@ -21,6 +21,8 @@ func process(c chan int){
 	}
 }
 
-func main() {
-	makeCHannel()
-}
+// func main() {
+// 	makeCHannel()
+// }
+
+// uncomment when running channel.go
