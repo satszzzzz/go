@@ -20,12 +20,6 @@ pipeline {
                 sh 'docker run -d --name go-app go-app:latest'
             }
         }
-
-        stage('Test') {
-            steps {
-
-            }
-        }
     }
 
     post {
