@@ -22,7 +22,7 @@ func main() {
 
 func dbCall(i int) {
 	delay:=2000
-	time.Sleep(time.Duration(delay*time.Millisecond))
+	time.Sleep(time.Duration(delay)*time.Millisecond)
 	fmt.Println("Database called is ", dbData[i])
 	results = append(results, dbData[i])
 }
