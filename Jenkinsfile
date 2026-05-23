@@ -2,11 +2,39 @@ pipeline {
     agent any
 
     stages {
-        stage('Hello') {
+        stage('Checkout') {
             steps {
-                echo 'Hello World, from Jenkins! :D'
-                sh 'echo running on $(hostname)'
+                checkout scm
             }
+        }
+
+        stage('Docker build') {
+            steps {
+                sh 'docker build -t go-app:latest .'
+            }
+        }
+
+        stage('Docker run') {
+            steps {
+                sh 'docker rm -f go-app || true'
+                sh 'docker run -d --name go-app go-app:latest'
+            }
+        }
+
+        stage('Test') {
+            steps {
+
+            }
+        }
+    }
+
+    post {
+        failure {
+            echo 'Pipeline failed!'
+        }
+        success {
+            echo 'Pipeline completed!'
+            sh 'docker rm -f go-app || true'
         }
     }
 }

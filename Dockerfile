@@ -1,5 +1,8 @@
 FROM goLang:1.22.12
 
-WORKDIR /go
-COPY . /go
-RUn go build -o main .
+WORKDIR /app
+COPY . .
+RUN go test ./...
+RUN go build -o main .
+
+CMD ["./main"]
